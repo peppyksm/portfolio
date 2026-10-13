@@ -546,32 +546,125 @@ nav a.active:after,nav a:hover:after {
 
 .project-layout {
   display:grid;
-  grid-template-columns:1.15fr 1fr;
-  gap:46px;
+  grid-template-columns:minmax(0,1fr);
+  gap:32px;
   margin-top:30px;
   align-items:start
 }
 
+.project-visual {
+  min-width:0
+}
+
+.project-browser {
+  border:1px solid #dce4ee;
+  border-radius:10px;
+  overflow:hidden;
+  background:#f4f7fb;
+  box-shadow:0 6px 22px #24364c0a
+}
+
+.browser-toolbar {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 16px;
+  background:#edf2f8;
+  border-bottom:1px solid #dce4ee
+}
+
+.browser-controls {
+  display:flex;
+  gap:6px;
+  flex:0 0 56px
+}
+
+.browser-controls span {
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#cf938c
+}
+
+.browser-controls span:nth-child(2) { background:#d5b579; }
+.browser-controls span:nth-child(3) { background:#8cae9b; }
+.browser-toolbar-spacer { flex:0 0 56px; }
+
+.browser-page-title {
+  flex:1;
+  min-width:0;
+  max-width:460px;
+  margin:0 auto;
+  padding:4px 12px;
+  border:1px solid #dce4ee;
+  border-radius:5px;
+  background:#ffffffa6;
+  color:#718097;
+  font-size:10px;
+  letter-spacing:0;
+  line-height:1.5;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
+}
+
+.project-carousel {
+  position:relative;
+  min-width:0
+}
+
+.project-carousel .swiper {
+  width:100%;
+  aspect-ratio:16 / 9;
+  background:#f4f6f8;
+  border:0
+}
+
+.project-carousel .swiper-slide {
+  height:100%
+}
+
+.carousel-arrow {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:2;
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid #dadde1;
+  background:rgba(255,255,255,.94);
+  color:#404854;
+  box-shadow:0 3px 12px #1f293714;
+  transition:background 180ms ease,box-shadow 180ms ease
+}
+
+.carousel-prev { left:16px; }
+.carousel-next { right:16px; }
+.carousel-arrow svg { width:20px; height:20px; }
+.carousel-arrow:hover { background:#fff; box-shadow:0 4px 16px #1f293727; }
+
 .preview-image {
   width:100%;
+  height:100%;
   position:relative;
   display:block;
   padding:0;
-  background:#f4f4f4;
+  background:transparent;
+  cursor:inherit;
   overflow:hidden;
-  border:1px solid #e4e4e4
+  border:0
 }
 
-.preview-image img {
+.project-carousel .preview-image img {
   width:100%;
-  height:290px;
-  object-fit:cover;
-  object-position:center top;
-  transition:transform .4s
-}
-
-.preview-image:hover img {
-  transform:scale(1.025)
+  height:100%;
+  object-fit:contain;
+  user-select:none;
+  transform:none
 }
 
 .preview-image>span {
@@ -598,7 +691,7 @@ nav a.active:after,nav a:hover:after {
 .project-thumbs {
   display:flex;
   gap:8px;
-  margin-top:20px
+  margin-top:14px
 }
 
 .project-thumbs button {
@@ -606,6 +699,8 @@ nav a.active:after,nav a:hover:after {
   background:white;
   padding:4px;
   width:calc((100% - 32px)/5);
+  max-width:84px;
+  min-width:0;
   opacity:.5;
   transition:opacity .2s,border .2s
 }
@@ -617,10 +712,18 @@ nav a.active:after,nav a:hover:after {
 
 .project-thumbs img {
   width:100%;
-  height:38px;
+  height:46px;
   object-fit:cover;
   object-position:top center;
   border-radius:1px
+}
+
+.project-description {
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+  gap:48px;
+  border-top:1px solid var(--line);
+  padding-top:30px
 }
 
 .project-description h4 {
@@ -631,8 +734,8 @@ nav a.active:after,nav a:hover:after {
   margin-bottom:14px
 }
 
-.project-description>p {
-  font-size:12px;
+.project-summary>p {
+  font-size:13px;
   color:#777;
   line-height:1.9
 }
@@ -641,7 +744,7 @@ nav a.active:after,nav a:hover:after {
   font-size:12px;
   color:#535353;
   line-height:2;
-  margin:18px 0
+  margin:0 0 18px
 }
 
 .project-stack {
@@ -682,6 +785,9 @@ nav a.active:after,nav a:hover:after {
 
 .frade-visual {
   background:#f4f7fb;
+  border:1px solid #dce4ee;
+  border-radius:10px;
+  overflow:hidden;
   min-height:350px
 }
 
@@ -713,9 +819,10 @@ nav a.active:after,nav a:hover:after {
 }
 
 .frade-visual pre {
-  margin:0;
-  padding:24px 20px;
-  font-size:10px;
+  max-width:760px;
+  margin:0 auto;
+  padding:28px 32px;
+  font-size:13px;
   line-height:2;
   letter-spacing:-.025em;
   overflow:auto;
@@ -1117,12 +1224,9 @@ dialog::backdrop {
   .experience>p {
     width:calc(50% - 22px)
   }
-  .preview-image img {
-    height:245px
-  }
   .frade-visual pre {
-    font-size:8.7px;
-    padding:20px 14px
+    font-size:12px;
+    padding:24px
   }
   .archive-links>a {
     padding:25px 20px;
@@ -1343,13 +1447,36 @@ dialog::backdrop {
     gap:29px;
     margin-top:23px
   }
-  .preview-image img {
-    height:230px
+  .project-description {
+    grid-template-columns:minmax(0,1fr);
+    gap:22px;
+    padding-top:24px
   }
+  .project-carousel .swiper {
+    aspect-ratio:4 / 3
+  }
+  .browser-toolbar {
+    padding:10px 12px;
+    gap:10px
+  }
+  .browser-controls,
+  .browser-toolbar-spacer {
+    flex-basis:34px
+  }
+  .browser-controls { gap:4px; }
+  .browser-controls span { width:7px; height:7px; }
+  .browser-page-title { font-size:9px; padding:4px 6px; }
+  .carousel-arrow {
+    width:32px;
+    height:32px
+  }
+  .carousel-prev { left:8px; }
+  .carousel-next { right:8px; }
+  .carousel-arrow svg { width:16px; height:16px; }
   .project-description h4 {
     font-size:21px
   }
-  .project-description>p,.project-description ul {
+  .project-summary>p,.project-description ul {
     font-size:12px
   }
   .project-bottom {
@@ -1541,7 +1668,6 @@ dialog[open]::backdrop { animation: backdrop-enter 220ms ease both; }
     transform: translateY(-1px);
   }
   .project-card:hover { box-shadow: 0 16px 40px #0000001a; }
-  .preview-image:hover img { transform: scale(1.015); }
   .button:hover > span,
   .contact-email:hover > span[aria-hidden] { transform: translate(2px, -2px); }
   .text-link:hover > span,
