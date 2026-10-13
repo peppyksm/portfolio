@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { gallery } from '../data/portfolio'
+import { projectGalleries } from '../data/portfolio'
 import Modal from './Modal'
 
-export default function GalleryDialog({ initialIndex, onClose }) {
+export default function GalleryDialog({ projectId, initialIndex, onClose }) {
+  const gallery = projectGalleries[projectId]
   const [index, setIndex] = useState(initialIndex)
   const imageWrapRef = useRef(null)
   const image = gallery[index]
@@ -17,7 +18,7 @@ export default function GalleryDialog({ initialIndex, onClose }) {
   }
 
   return (
-    <Modal className="gallery-dialog" labelledBy="gallery-title" heading={`PROVIT / ${image.title}`} closeLabel="화면 갤러리 닫기" onClose={onClose} onKeyDown={handleKeyDown}>
+    <Modal className="gallery-dialog" labelledBy="gallery-title" heading={`${projectId.toUpperCase()} / ${image.title}`} closeLabel="화면 갤러리 닫기" onClose={onClose} onKeyDown={handleKeyDown}>
       <div ref={imageWrapRef} className="gallery-image-wrap"><img className="gallery-image" src={image.src} alt={image.title} /></div>
       <div className="gallery-bottom">
         <button type="button" aria-label="이전 이미지" onClick={() => move(-1)}>←</button>

@@ -36,7 +36,7 @@ export default function App() {
         <Skills />
         <Archiving />
         <Projects
-          onOpenGallery={(index) => setModal({ type: 'gallery', index })}
+          onOpenGallery={(project, index) => setModal({ type: 'gallery', project, index })}
           onOpenDetails={(project) => setModal({ type: 'details', project })}
         />
         <Contact onNotify={(message) => setToast({ message, id: Date.now() })} />
@@ -45,7 +45,7 @@ export default function App() {
       <button className={`back-top${showBackTop ? ' visible' : ''}`} type="button" aria-label="맨 위로 이동" onClick={goToTop}>↑</button>
       <Toast notification={toast} onDismiss={() => setToast(null)} />
       {modal?.type === 'details' && <ProjectDialog projectId={modal.project} onClose={closeModal} />}
-      {modal?.type === 'gallery' && <GalleryDialog initialIndex={modal.index} onClose={closeModal} />}
+      {modal?.type === 'gallery' && <GalleryDialog projectId={modal.project} initialIndex={modal.index} onClose={closeModal} />}
     </>
   )
 }

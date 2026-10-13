@@ -22,7 +22,7 @@ npm run preview
 - `src/hooks/useSectionNavigation.js`: 스크롤 위치에 따른 메뉴 및 맨 위로 버튼 상태
 - `src/index.css`: 전역 스타일
 - `src/App.css`: 원본 디자인과 반응형 스타일
-- `public/assets/`: 프로젝트 화면 5장과 포트폴리오 PDF
+- `public/assets/`: Provit 자료 5장, Frade 화면·DB 자료 5장, 프로젝트 PDF
 
 프로젝트 내용은 `src/data/portfolio.js`, 구현 상세는 `ProvitDetails.jsx`와
 `FradeDetails.jsx`에서 수정합니다. PDF를 교체하려면
@@ -41,8 +41,12 @@ PDF 다운로드를 제공합니다. 대화상자는 Escape로 닫을 수 있고
 브론즈 색상을 사용합니다. 연락처는 작은 제목과 이메일을 중심으로 한
 반응형 2열 구성입니다.
 
-프로젝트 카드는 큰 이미지/코드 패널 아래에 설명을 배치합니다. provit 화면은
+프로젝트 카드는 큰 이미지 아래에 설명을 배치합니다. provit·frade 화면은
 양옆 화살표, 마우스 드래그, 터치 스와이프, 좌우 키, 썸네일로 전환할 수
 있으며 이미지를 클릭하면 선택한 화면이 확대 갤러리로 열립니다.
 이미지 영역은 세 개의 창 버튼, 상단 바와 둥근 테두리로 맥 브라우저 창처럼
 표현하며, 상단 제목도 선택한 이미지에 맞춰 바뀝니다.
+
+Frade의 계산 코드 패널은 상세 대화상자에 있습니다. Frade 상세에는 서비스 흐름,
+담당 범위, 거래 조회, 자산 계산, SSE 갱신, 협업 회고와 원본 PDF 링크를 제공합니다.
+자료 출처와 실제 소스 대조 기준은 `docs/frade-content-sources.md`에 기록했습니다.

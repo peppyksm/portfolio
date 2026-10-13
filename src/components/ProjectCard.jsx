@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import ProjectPreview from './ProjectPreview'
-import FradeVisual from './FradeVisual'
+import { projectGalleries } from '../data/portfolio'
 import Reveal from './Reveal'
 
 export default function ProjectCard({ project, index, onOpenGallery, onOpenDetails }) {
@@ -15,7 +15,7 @@ export default function ProjectCard({ project, index, onOpenGallery, onOpenDetai
         <span className="role">{project.role}</span>
       </div>
       <div className="project-layout">
-        {project.id === 'provit' ? <ProjectPreview onOpenGallery={onOpenGallery} /> : <FradeVisual />}
+        <ProjectPreview projectId={project.id} gallery={projectGalleries[project.id]} onOpenGallery={(imageIndex) => onOpenGallery(project.id, imageIndex)} />
         <div className="project-description">
           <div className="project-summary">
             <h4>{project.title.map((line, i) => <Fragment key={line}>{i > 0 && <br />}{line}</Fragment>)}</h4>

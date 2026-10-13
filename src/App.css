@@ -501,6 +501,7 @@ nav a.active:after,nav a:hover:after {
 
 .project-card {
   background:white;
+  scroll-margin-top:calc(var(--nav-height) + 24px);
   color:var(--ink);
   padding:40px;
   margin-top:34px
@@ -1151,6 +1152,73 @@ dialog::backdrop {
   background:#f4f4f2
 }
 
+.preview-source {
+  margin-top:14px;
+  font-size:10px;
+  line-height:1.8;
+  color:#888
+}
+
+.service-flow {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  list-style:none;
+  gap:10px;
+  padding:0;
+  margin:20px 0
+}
+
+.service-flow li {
+  padding:14px;
+  border:1px solid var(--line);
+  background:#fafaf9;
+  color:#444;
+  font-weight:500
+}
+
+.service-flow span {
+  display:block;
+  font-size:10px;
+  color:#999;
+  letter-spacing:.08em;
+  margin-bottom:5px
+}
+
+.calculation-example {
+  margin-top:20px;
+  padding:18px 20px;
+  border-left:2px solid #93a6bd;
+  background:#f4f7fb
+}
+
+.detail-content .calculation-example h4 { margin:0 0 8px; }
+.calculation-example small { display:block; margin-top:10px; font-size:10px; line-height:1.8; color:#7b8a9e; }
+.detail-content .frade-visual { margin-top:20px; min-height:0; }
+.detail-content .frade-visual pre { background:none; font-size:11px; }
+.detail-content .frade-visual .terminal-title p { font-size:10px; line-height:1.5; color:#63758c; }
+.detail-content .frade-visual .code-caption { font-size:10px; line-height:1.8; color:#7b8a9e; }
+
+.project-document-links {
+  display:grid;
+  gap:10px;
+  margin-top:18px
+}
+
+.project-document-links a {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:16px 18px;
+  border:1px solid var(--line);
+  font-size:12px;
+  line-height:1.6
+}
+
+.project-document-links a:hover { background:#f7f7f5; border-color:#aaa; }
+.project-document-links small { display:block; margin-top:4px; font-size:10px; color:#888; }
+.document-format { white-space:nowrap; font-size:10px; color:#888; }
+
 .gallery-image-wrap {
   background:#eee;
   padding:20px;
@@ -1549,6 +1617,9 @@ dialog::backdrop {
   .detail-content table {
     font-size:10px
   }
+  .service-flow { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+  .service-flow li { padding:12px; }
+  .project-document-links a { padding:13px; gap:10px; }
   .detail-content th,.detail-content td {
     padding:8px
   }
