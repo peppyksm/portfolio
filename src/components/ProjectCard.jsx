@@ -1,19 +1,22 @@
 import { Fragment } from 'react'
 import ProjectPreview from './ProjectPreview'
 import { projectGalleries } from '../data/portfolio'
+import ProjectEvidence from './ProjectEvidence'
 import Reveal from './Reveal'
 
-export default function ProjectCard({ project, index, onOpenGallery, onOpenDetails }) {
+export default function ProjectCard({ project, onOpenGallery, onOpenDetails }) {
   return (
     <Reveal as="article" className="project-card" id={`project-${project.id}`}>
       <div className="project-top">
         <div>
-          <span className="project-index">PROJECT {String(index + 1).padStart(2, '0')}</span>
+          <span className="project-index">{project.round}차 프로젝트 · PROJECT {String(project.round).padStart(2, '0')}</span>
           <h3>{project.id}<span>.</span></h3>
           <p>{project.period}</p>
         </div>
         <span className="role">{project.role}</span>
       </div>
+      <p className="project-case"><strong>대표 사례</strong>{project.caseStudy}</p>
+      <ProjectEvidence projectId={project.id} />
       <div className="project-layout">
         <ProjectPreview projectId={project.id} gallery={projectGalleries[project.id]} onOpenGallery={(imageIndex) => onOpenGallery(project.id, imageIndex)} />
         <div className="project-description">
