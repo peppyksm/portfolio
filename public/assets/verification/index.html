@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>프로젝트 검증 기록과 한계</title>
+<style>body{max-width:860px;margin:48px auto;padding:0 22px;font:16px/1.85 system-ui,sans-serif;color:#303030}h1{font-size:30px}h2{margin-top:40px}a{color:#244f94}li{margin:12px 0}aside{padding:18px;background:#f4f4f2}code{overflow-wrap:anywhere}small{color:#555}</style>
+<small>검증 자료 안내 · 2026.10.16</small><h1>기존 검증 기록과 확인 범위</h1>
+<aside>아래 로그는 기존 보관본이며 이번 포트폴리오 수정에서 실행한 Java/Node 서비스 테스트 결과가 아닙니다. 파일의 2026.10.14 수정 시각은 정확한 실행일의 증거가 아닙니다. 로그에 대상 commit·실행 명령·환경이 완전하게 기록되어 있지 않아 실행일/버전/명령은 확정하지 않습니다. 재현 시 해당 정보를 함께 남겨야 합니다.</aside>
+<section id="provit"><h2>Provit</h2>
+<p><a href="https://github.com/peppyksm/provit">공개 저장소</a> · <a href="https://github.com/wnsgk0509/provit/pull/53">peppyksm 작성·머지된 첨삭 PR #53</a>. PR은 첨삭 기여의 근거이며 모든 기능의 단독 작성 증거가 아닙니다.</p>
+<ul>
+<li><a href="provit-junit-tests.log">기존 Java 로그</a>: run 48 / pass 48 / failure 0 / ignored 0 / assumptionSkipped 0. 외부 의존성 대체 테스트이며 실제 OpenAI 호출·현재 운영 Oracle 검증이 아닙니다.</li>
+<li><a href="provit-node-tests.log">기존 Node 로그</a>: tests 22 / pass 22 / fail 0 / skipped 0. 요청 복구·날짜·초안 등 국소 계약 확인 기록입니다.</li>
+<li><a href="https://github.com/peppyksm/provit/blob/5ea207c3eb8d85a074169e89c8efd9b333e27d09/backend/src/main/java/com/provit/service/document/impl/DocumentReviewServiceImpl.java">첨삭 처리 코드</a> · <a href="https://github.com/peppyksm/provit/blob/5ea207c3eb8d85a074169e89c8efd9b333e27d09/docs/interview-text-length-review.md">면접 문자 길이 검증 문서</a>. 공개 접근을 확인한 버전: <code>5ea207c</code>. 이 SHA가 보관 로그의 실행 대상이었다고 단정하지 않습니다.</li>
+</ul>
+<p>별도 Oracle 테이블 검증 완료는 프로젝트 문서의 기존 기록입니다. 별도로 보관된 surefire 결과의 OracleInterviewTextLengthTest는 tests 3 / skipped 3이며 통과로 계산하지 않습니다. 기존 프로젝트 DB 마이그레이션·재배포는 남아 있습니다. 일반 이력서 mainDuty의 BYTE/CHAR 계약은 현재 실제 운영 DDL 미확인인 조건부 반례입니다.</p>
+<p>문서 내용 캐시를 구현한 것은 아닙니다. 같은 사용자·requestId·문서 ID/조건에 한해 기존 상태/결과를 반환합니다. 첨삭 원문 JSON/PDF는 보관되지만 기록 API는 인용 구절·수정안·결과를 조회합니다. 남은 PROCESSING 자동 복구는 없습니다.</p></section>
+<section id="frade"><h2>Frade</h2>
+<p><a href="https://github.com/chlqjarb0216-bit/frade">팀 공개 저장소</a> · <a href="../frade-corrections.html">팀 자료 정정표와 담당 소스</a>. 공개 접근을 확인한 버전: <code>a1c49b9</code>. 로컬 검수본 전체의 동일성·개인 작성 이력은 별도 확인 대상입니다.</p>
+<ul>
+<li><a href="frade-java-tests.log">기존 자산 서비스 로그</a>: 17 assertions. 실제 서비스 로직을 사용하고 DB·가격 서비스는 fixture로 대체한 기록입니다. 수량 0 입력은 ArithmeticException 경계가 관찰됐고 mapper가 수량 0 이하를 제외합니다.</li>
+<li><a href="frade-sse-tests.log">기존 SSE 화면 로그</a>: tests 10 / pass 10 / fail 0 / skipped 0. 합성 이벤트·대체 환경이며 실제 증권사 스트림, 배포 프로토콜, 복수 탭/대량 종목의 운영 검증은 아닙니다.</li>
+</ul>
+<p>최근 25건·고정 초기금·가격만 갱신하는 범위를 유지합니다. 실제 거래 가격 신뢰와 민감정보 로그 문제는 후속 코드 수정·회귀가 필요합니다. 발표/WBS/테스트 시나리오는 당시 팀 자료이며 이 로그와 같은 실행 증거가 아닙니다.</p></section>
+</html>

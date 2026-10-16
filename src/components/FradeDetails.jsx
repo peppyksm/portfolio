@@ -1,5 +1,6 @@
 import { fradeDocuments } from '../data/portfolio'
 import FradeVisual from './FradeVisual'
+import ProjectEvidence from './ProjectEvidence'
 
 export default function FradeDetails() {
   return (
@@ -7,6 +8,7 @@ export default function FradeDetails() {
       <h2 id="detail-title">frade.</h2>
       <p className="detail-meta">2026.08.20 — 2026.09.08 · 5인 팀 · 결과 발표</p>
       <p className="detail-lead">모의 투자의 경험을 거래기록과 자산 정보로 확인하고, 커뮤니티에서 투자 의견을 나누는 플랫폼</p>
+      <ProjectEvidence projectId="frade" />
 
       <section>
         <h3>서비스와 담당 범위</h3>
@@ -17,7 +19,7 @@ export default function FradeDetails() {
           <li><span>03</span>자산 확인</li>
           <li><span>04</span>의견 공유</li>
         </ol>
-        <p>저는 거래기록 저장·전체 및 기간별 조회, 마이페이지 최근 거래기록과 자산 포트폴리오를 담당했습니다. 기획 단계에서는 와이어프레임과 ERD 설계에 참여하고 테이블 명세서를 작성했으며, 최종 결과 발표도 맡았습니다.</p>
+        <p>저는 거래기록 저장·전체 및 기간별 조회 DAO/SQL, 마이페이지 최근 25건과 자산 포트폴리오를 담당했습니다. 기간별 SQL 구현과 사용자 화면 필터 완료는 구분합니다. 기획 단계에서는 와이어프레임과 ERD 설계에 참여하고 테이블 명세서를 작성했으며, 최종 결과 발표도 맡았습니다.</p>
         <p>팀의 시세 수집·종목 차트 기능과 연결해 자산 화면을 구성했습니다. 회원 인증·커뮤니티·증권사 API 수집은 팀의 다른 담당 영역입니다.</p>
       </section>
 
@@ -102,12 +104,12 @@ export default function FradeDetails() {
 
       <section>
         <h3>프로젝트 자료</h3>
-        <p>서비스 기획·담당 역할·개발 일정과 확인 항목을 볼 수 있는 원본 산출물입니다. 테스트 시나리오는 확인 절차를 담은 문서이며 테스트 통과 결과를 의미하지 않습니다.</p>
+        <p>원본 팀 산출물은 작성 당시 상태로 보존했습니다. 먼저 채용용 정정표를 확인해 주세요. 발표 26쪽 제목은 테스트 시나리오 예시로 정정하며, 27쪽 시연은 내부망 전용으로 외부에서 접속할 수 없습니다. 34쪽 미작성 칸은 팀 원본에 남아 있습니다. 테스트 시나리오는 통과 기록이 아닙니다.</p>
         <div className="project-document-links">
           {fradeDocuments.map((document) => (
             <a key={document.href} href={document.href} target="_blank" rel="noopener noreferrer">
               <span>{document.title}<small>{document.description}</small></span>
-              <span className="document-format">PDF ↗</span>
+              <span className="document-format">{document.format} ↗</span>
             </a>
           ))}
         </div>

@@ -28,17 +28,17 @@ export default function App() {
 
   return (
     <>
-      <a className="skip" href="#about">본문 바로가기</a>
+      <a className="skip" href="#projects">본문 바로가기</a>
       <Header activeSection={activeSection} scrolled={scrolled} brandRef={brandRef} />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Archiving />
         <Projects
           onOpenGallery={(project, index) => setModal({ type: 'gallery', project, index })}
           onOpenDetails={(project) => setModal({ type: 'details', project })}
         />
+        <About />
+        <Skills />
+        <Archiving />
         <Contact onNotify={(message) => setToast({ message, id: Date.now() })} />
       </main>
       <Footer />

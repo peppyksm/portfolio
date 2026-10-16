@@ -67,13 +67,13 @@
   font-size:26px
 }
 
-nav {
+.header nav {
   display:flex;
   gap:30px;
   align-items:center
 }
 
-nav a {
+.header nav a {
   font-size:12px;
   font-weight:500;
   letter-spacing:0;
@@ -82,11 +82,11 @@ nav a {
   position:relative
 }
 
-nav a:hover,nav a.active {
+.header nav a:hover,.header nav a.active {
   color:#171717
 }
 
-nav a:after {
+.header nav a:after {
   content:"";
   height:1px;
   background:#171717;
@@ -97,7 +97,7 @@ nav a:after {
   transition:width .2s
 }
 
-nav a.active:after,nav a:hover:after {
+.header nav a.active:after,.header nav a:hover:after {
   width:100%
 }
 
@@ -137,7 +137,7 @@ nav a.active:after,nav a:hover:after {
 }
 
 .hero h1 {
-  font-size:clamp(46px,6vw,80px);
+  font-size:clamp(36px,4vw,52px);
   font-weight:300;
   letter-spacing:-.065em;
   line-height:1.25;
@@ -190,10 +190,21 @@ nav a.active:after,nav a:hover:after {
 }
 
 .hero-description {
-  font-size:16px;
-  color:#777;
-  line-height:1.9;
-  letter-spacing:-.04em
+  font-size:clamp(24px,2.7vw,35px);
+  font-weight:500;
+  color:var(--ink);
+  line-height:1.55;
+  letter-spacing:-.05em;
+  word-break:keep-all
+}
+
+.hero-description strong { font-weight:750; }
+
+.hero-supporting {
+  margin-top:18px;
+  font-size:14px;
+  color:#737373;
+  word-break:keep-all
 }
 
 .hero-actions {
@@ -385,7 +396,7 @@ nav a.active:after,nav a:hover:after {
 
 .skill-grid {
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:28px
 }
 
@@ -499,6 +510,31 @@ nav a.active:after,nav a:hover:after {
   color:#777
 }
 
+.project-tabs {
+  display:flex;
+  gap:12px;
+  margin-bottom:26px
+}
+
+.project-tabs button {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  min-height:60px;
+  padding:14px 25px;
+  border:1px solid #626262;
+  background:transparent;
+  color:#c6c6c6;
+  transition:background 180ms ease,color 180ms ease,border-color 180ms ease
+}
+
+.project-tabs button span { font-size:11px; }
+.project-tabs button strong { font-size:20px; letter-spacing:-.035em; }
+.project-tabs button:hover { border-color:#eee; color:#fff; }
+.project-tabs button[aria-selected="true"] { background:#fff; border-color:#fff; color:var(--ink); }
+.project-tabs button:focus-visible { outline-color:#fff; }
+.projects [role="tabpanel"]:focus-visible { outline-color:#aaa; }
+
 .project-card {
   background:white;
   scroll-margin-top:calc(var(--nav-height) + 24px);
@@ -534,8 +570,8 @@ nav a.active:after,nav a:hover:after {
 }
 
 .project-top p {
-  font-size:10px;
-  color:#999
+  font-size:12px;
+  color:#666
 }
 
 .role {
@@ -749,8 +785,8 @@ nav a.active:after,nav a:hover:after {
 }
 
 .project-stack {
-  font-size:10px;
-  color:#888;
+  font-size:12px;
+  color:#666;
   letter-spacing:0;
   border-top:1px solid var(--line);
   padding-top:15px;
@@ -1070,8 +1106,8 @@ dialog::backdrop {
 }
 
 .detail-meta {
-  font-size:11px;
-  color:#888;
+  font-size:12px;
+  color:#666;
   margin-bottom:27px
 }
 
@@ -1138,14 +1174,26 @@ dialog::backdrop {
 }
 
 .detail-footnote {
-  font-size:10px;
-  color:#999;
+  font-size:12px;
+  color:#666;
   margin-top:30px
 }
 
 .detail-content .button {
   margin-top:23px
 }
+
+.issue + .issue { border-top:1px solid var(--line); margin-top:28px; padding-top:6px; }
+.detail-content .issue h4 { font-size:16px; line-height:1.6; margin-bottom:20px; }
+.issue-steps { margin:0; }
+.issue-steps > div { display:grid; grid-template-columns:72px minmax(0,1fr); gap:16px; margin-top:16px; }
+.issue-steps dt { font-size:11px; font-weight:650; padding-top:3px; }
+.issue-steps dd { margin:0; font-size:13px; line-height:1.95; color:#666; word-break:keep-all; }
+.detail-content .issue-note { margin-top:18px; padding:14px 16px; background:var(--soft); font-size:12px; }
+.length-table-wrap { overflow-x:auto; }
+.length-table caption { text-align:left; font-size:11px; color:#777; padding-bottom:10px; }
+.length-table code { font-size:11px; white-space:nowrap; letter-spacing:-.035em; }
+.detail-content .length-table tbody th { background:transparent; border-bottom:1px solid #ddd; color:#666; }
 
 .gallery-dialog {
   width:1100px;
@@ -1154,9 +1202,9 @@ dialog::backdrop {
 
 .preview-source {
   margin-top:14px;
-  font-size:10px;
+  font-size:12px;
   line-height:1.8;
-  color:#888
+  color:#666
 }
 
 .service-flow {
@@ -1216,8 +1264,8 @@ dialog::backdrop {
 }
 
 .project-document-links a:hover { background:#f7f7f5; border-color:#aaa; }
-.project-document-links small { display:block; margin-top:4px; font-size:10px; color:#888; }
-.document-format { white-space:nowrap; font-size:10px; color:#888; }
+.project-document-links small { display:block; margin-top:4px; font-size:12px; color:#666; }
+.document-format { white-space:nowrap; font-size:12px; color:#666; }
 
 .gallery-image-wrap {
   background:#eee;
@@ -1271,7 +1319,7 @@ dialog::backdrop {
     padding:100px 24px
   }
   .hero h1 {
-    font-size:84px
+    font-size:56px
   }
 }
 
@@ -1350,7 +1398,7 @@ dialog::backdrop {
     top:17px;
     transform:rotate(-45deg)
   }
-  nav {
+  .header nav {
     display:none;
     position:absolute;
     left:0;
@@ -1362,15 +1410,15 @@ dialog::backdrop {
     align-items:stretch;
     gap:5px
   }
-  nav.open {
+  .header nav.open {
     display:flex;
     flex-direction:column
   }
-  nav a {
+  .header nav a {
     padding:10px 0;
     font-size:13px
   }
-  nav a:after {
+  .header nav a:after {
     display:none
   }
   .hero {
@@ -1380,15 +1428,25 @@ dialog::backdrop {
     padding:56px 20px 93px
   }
   .hero h1 {
-    font-size:clamp(40px,12vw,52px);
+    font-size:clamp(32px,8vw,40px);
     margin-top:26px
   }
   .hero .eyebrow {
     font-size:9px
   }
   .hero-description {
-    font-size:13px
+    font-size:clamp(19px,5.1vw,26px)
   }
+  .hero-supporting { font-size:12px; margin-top:15px; }
+  .hero-rule { margin:24px auto; }
+  .project-tabs { gap:10px; margin-bottom:22px; }
+  .project-tabs button { flex:1; flex-direction:column; align-items:flex-start; gap:3px; padding:12px 16px; }
+  .project-tabs button span { font-size:10px; }
+  .project-tabs button strong { font-size:21px; }
+  .issue-steps > div { grid-template-columns:minmax(0,1fr); gap:4px; }
+  .issue-steps dd { font-size:12px; }
+  .detail-content .length-table th,.detail-content .length-table td { padding:9px 6px; font-size:11px; }
+  .length-table code { font-size:10px; }
   .hero-actions {
     gap:19px;
     margin-top:28px
@@ -1503,7 +1561,7 @@ dialog::backdrop {
     font-size:37px
   }
   .project-top p {
-    font-size:9px
+    font-size:12px
   }
   .role {
     display:block;
@@ -1773,3 +1831,11 @@ dialog[open]::backdrop { animation: backdrop-enter 220ms ease both; }
     animation:none!important
   }
 }
+
+/* 핵심 사례와 직접 근거는 이미지 전후에서 바로 읽을 수 있게 둡니다. */
+.project-case { margin:24px 0 12px; padding:16px 18px; background:var(--soft); font-size:13px; line-height:1.85; color:#444; overflow-wrap:anywhere; }
+.project-case strong { display:block; font-size:12px; margin-bottom:4px; }
+.evidence-links { display:flex; flex-wrap:wrap; gap:10px 20px; margin:18px 0; }
+.evidence-links a { font-size:12px; line-height:1.8; text-decoration:underline; text-underline-offset:4px; color:#555; overflow-wrap:anywhere; }
+.preview-source { overflow-wrap:anywhere; }
+.project-document-links a > span:first-child { min-width:0; overflow-wrap:anywhere; }

@@ -442,3 +442,9 @@ FodyWeavers.xsd
 
 # Vite build output
 dist/
+
+# 제출 페이지에서 연결하는 비식별 기존 검증 기록
+!public/assets/verification/frade-java-tests.log
+!public/assets/verification/frade-sse-tests.log
+!public/assets/verification/provit-junit-tests.log
+!public/assets/verification/provit-node-tests.log

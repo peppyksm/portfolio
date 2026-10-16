@@ -64,6 +64,7 @@ export default function ProjectPreview({ projectId, gallery, onOpenGallery }) {
       </div>
       </div>
       <div className="image-meta" aria-live="polite" aria-atomic="true"><span>{selected.title}</span><span>{String(selectedIndex + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')}</span></div>
+      <p className="preview-source">{selected.note}</p>
       <div className="project-thumbs" aria-label={`${projectId} 화면 선택`}>
         {gallery.map((image, index) => (
           <button key={image.src} type="button" className={index === selectedIndex ? 'active' : undefined} aria-label={`${image.title} 선택`} aria-pressed={index === selectedIndex} onClick={() => sliderRef.current?.slideToLoop(index, slideSpeed)}>
@@ -71,7 +72,7 @@ export default function ProjectPreview({ projectId, gallery, onOpenGallery }) {
           </button>
         ))}
       </div>
-      {projectId === 'frade' && <p className="preview-source">최종 화면·DB 설계 자료 · 화면의 금액과 수익률은 테스트 데이터입니다.</p>}
+      <p className="preview-source">{projectId === 'frade' ? '팀 화면·당시 DB 설계 자료 · 본인 담당: 거래기록·자산 포트폴리오 · 금액은 테스트 데이터' : '화면설계 자료·테스트 화면 · AI 첨삭 결과는 화면 구성용 예시'}</p>
     </div>
   )
 }
