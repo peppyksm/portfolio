@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Frade · 채용용 자료 정정표</title>
+<style>body{max-width:880px;margin:48px auto;padding:0 22px;font:16px/1.85 system-ui,sans-serif;color:#303030}h1{font-size:30px}h2{margin-top:38px;font-size:21px}a{color:#244f94}small{color:#555}li{margin:12px 0}code{overflow-wrap:anywhere}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:12px;text-align:left;vertical-align:top}th{background:#f4f4f2}.table{overflow:auto}aside{background:#f4f4f2;padding:18px}nav{display:flex;gap:16px;flex-wrap:wrap}@media print{body{margin:20px}}</style>
+<header><small>FRADE · 2026.10.16 정정 · 팀 원본 보존</small><h1>당시 팀 자료와 현재 구현의 차이</h1><p>2026.08.20~09.08 · 5인 팀. 본인 소개 범위는 거래기록 DAO/SQL·최근 25건·자산 포트폴리오·설계 참여 및 결과 발표입니다. 발표/WBS의 주문 담당 표기는 주문 엔진 전체의 개인 기여를 증명하지 않습니다.</p></header>
+<aside>이 정정표는 2026.10.15 소스 대조 검수의 확정 사실을 반영했습니다. 로컬 검수본과 공개 저장소 전체의 동일성, 실제 운영 DB 및 실거래 API는 확인하지 않았습니다. 테스트 시나리오와 WBS의 완료 표시는 테스트 통과 결과가 아닙니다.</aside>
+<h2>원본에서 먼저 읽을 곳</h2>
+<nav><a href="frade-presentation.pdf">팀 발표 원본 · 37쪽</a><a href="frade-wbs.pdf">WBS 원본</a><a href="frade-test-scenarios.pdf">테스트 시나리오 원본</a><a href="verification/index.html#frade">기존 검증 기록</a></nav>
+<p>발표 5쪽: 역할 / 23~24쪽: 담당 DB 명세 / 28쪽: 팀 공통 통합 회고. 28·30쪽의 같은 회고는 개인의 독자적 해결 성과로 사용하지 않습니다. 상위 브랜치 확인은 당시 개선 제안으로 한정합니다.</p>
+<h2>DB 명세 정정</h2>
+<div class="table"><table><thead><tr><th>원본 위치</th><th>정정 · 로컬 DDL/mapper 기준</th></tr></thead><tbody>
+<tr><td>발표 23쪽 · T_PORTFOLIO</td><td>PK는 <code>(USER_NUM, STOCK_CODE)</code>. U_NUM 표기는 식별자 불일치입니다. USER_BUY_COST는 단일 체결가가 아닌 총매입원가입니다.</td></tr>
+<tr><td>발표 24쪽 · T_HISTORY</td><td>PK <code>TRADE_NUM</code>, 인덱스 <code>(USER_NUM, TRADE_DATE)</code>. TR_NUM/U_NUM/TR_DATE는 현행 식별자와 다릅니다. 번호는 <code>seq_t_history.NEXTVAL</code> 기본값으로 생성하며 AUTO-INCREMENT를 실제 문법으로 쓰지 않습니다.</td></tr>
+<tr><td>발표 23~24쪽 운영 값</td><td>보존 10년·백업 1년은 당시 양식/설계값입니다. 실제 운영 정책·실행 검증의 근거로 사용하지 않습니다.</td></tr>
+</tbody></table></div>
+<p>근거: <a href="https://github.com/chlqjarb0216-bit/frade/blob/a1c49b94ac635e76c5ace60801383c57e584f64e/src/main/webapp/WEB-INF/sql/db_setting.sql">DB 정의</a> · <a href="https://github.com/chlqjarb0216-bit/frade/blob/a1c49b94ac635e76c5ace60801383c57e584f64e/src/main/webapp/WEB-INF/mybatis/mapper/history/history_mapper.xml">거래 조회 SQL</a> · <a href="https://github.com/chlqjarb0216-bit/frade/blob/a1c49b94ac635e76c5ace60801383c57e584f64e/src/main/java/com/frade/service/portfolio/impl/PortfolioServiceImpl.java">자산 계산 서비스</a>. 공개 코드는 링크 접근을 확인한 버전이며 로컬 전체와 동등하다는 뜻은 아닙니다.</p>
+<h2>발표와 테스트 문서 정정</h2>
+<ul>
+<li>발표 26쪽 제목은 “테스트 시나리오 예시”가 맞습니다.</li>
+<li>발표 27쪽은 학원 내부망 시연용 주소로 외부 접속이 불가능합니다. 현재 검증한 공개 시연·녹화 링크는 없습니다.</li>
+<li>발표 34쪽 “입력하시오.”는 팀 원본의 미작성 칸입니다. 팀원의 평가를 대신 작성하지 않았습니다.</li>
+<li>테스트 2쪽 25항: “회원정보 암호화” 대신 “비밀번호 해시값 저장 확인”으로 범위를 한정합니다. 현재 고정 salt·단회 SHA-256을 안전한 비밀번호 저장 성과로 표현하지 않습니다.</li>
+<li>테스트 3쪽 50항: ApexCharts가 아닌 <strong>Chart.js</strong>입니다. 근거: <a href="https://github.com/chlqjarb0216-bit/frade/blob/a1c49b94ac635e76c5ace60801383c57e584f64e/src/main/webapp/WEB-INF/views/user/mypage.jsp">마이페이지 JSP</a>.</li>
+<li>테스트 3쪽 49·52항: 마이페이지는 최근 거래 25건과 해당 목록 건수를 표시합니다. 전체 누적 거래 횟수·누락 없는 전체 이력과 구분합니다. 기간별 조건은 DAO/SQL 구현이며 사용자 화면 필터 완료는 확인하지 않았습니다.</li>
+</ul>
+<h2>현재 자산 화면의 경계</h2>
+<p>초기금은 1,000만 원으로 고정됩니다. SSE는 시세에 따른 평가값만 갱신하며, 보유수량·예치금 변경은 페이지 재조회가 필요합니다. 평균 매수가는 정수 나눗셈, 비율은 소수 둘째 자리 반올림입니다. 화면의 금액·수익률은 테스트 데이터입니다.</p>
+<p>후속 코드 검증 과제인 시장가 주문의 클라이언트 가격 신뢰와 비밀번호 로그 문제는 이번 문구 수정으로 해결되지 않았습니다.</p>
+</html>

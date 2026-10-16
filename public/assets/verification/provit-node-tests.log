@@ -1,0 +1,30 @@
+✔ UUID generation also works without randomUUID on HTTP deployments (0.6366ms)
+✔ editing document selection preserves the unresolved request ID (0.8821ms)
+✔ request is persisted before sending and restored after refresh with the same ID (0.9312ms)
+✔ storage failure prevents starting a request whose ID cannot be restored (0.3982ms)
+✔ changing an unresolved request preserves the original payload (0.177ms)
+✔ processing, completed and failed records are recovered without another POST (0.2224ms)
+✔ only a missing server record resends the exact stored request ID and payload (0.2174ms)
+✔ authentication, timeout and server errors never trigger another POST (0.2771ms)
+✔ missing or corrupt recovery payload is not submitted (0.2619ms)
+✔ 한국 자정에 오늘 날짜가 바뀐다 (13.3893ms)
+✔ 입학일, 입사일, 취득일의 미래 날짜만 거부한다 (0.1454ms)
+✔ 연도가 바뀌어도 미래 날짜를 거부하고 예정 종료일은 허용한다 (0.1004ms)
+✔ 작성 중 답변과 진행 ID를 재접속 시 복원하고 회원별로 분리한다 (0.8134ms)
+✔ 만료 시각부터 저장 데이터를 제거하고 손상된 데이터도 복구 대상에서 제외한다 (0.1446ms)
+✔ 응답을 받지 못한 제출이 서버에서 성공했으면 이전 초안을 다음 문항에 붙이지 않는다 (0.4985ms)
+✔ 평가 후 저장 재시도에서는 서버가 확정한 답변을 잠금 상태로 복원한다 (0.1501ms)
+✔ 재개 시 서버의 남은 시간을 사용하고 이미 끝난 시간을 다시 부여하지 않는다 (0.146ms)
+✔ 브라우저 저장소 차단으로 면접 자체가 예외로 중단되지 않는다 (0.1682ms)
+✔ 최초와 최근 면접은 날짜와 동일 날짜의 기록 번호로 결정한다 (8.6842ms)
+✔ 기록이 없거나 하나인 경우에도 정렬이 안전하다 (0.1398ms)
+✔ 오각형 점수는 100점 척도를 사용하고 범위를 벗어나지 않는다 (0.3572ms)
+✔ 점수 0과 소수는 표시하고 누락된 점수는 구분한다 (4.5942ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 138.551

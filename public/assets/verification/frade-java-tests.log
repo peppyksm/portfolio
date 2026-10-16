@@ -1,0 +1,19 @@
+PASS normal-total-with-cash = 9800000
+PASS normal-total-valuation = 800000
+PASS negative-total-revenue = -200000
+PASS negative-total-return = -2.0
+PASS positive-stock-return = 20.0
+PASS negative-stock-return-rounding = -33.33
+PASS cash-in-weight-denominator = 6.12
+PASS chart-values-include-cash = [600000, 200000, 9000000]
+PASS history-count-is-recent-list-size = 2
+PASS empty-holdings = 0
+PASS cash-only-chart = [10000000]
+PASS initial-cash-zero-return = 0.0
+PASS missing-cash-is-zero = 0
+PASS zero-buy-cost-no-nan = 0.0
+PASS missing-price-valued-at-zero = 0
+PASS missing-price-negative-pnl = -500000
+PASS valuation-uses-long = 5000000000
+OBSERVED_BOUNDARY zero-quantity -> ArithmeticException; mapper excludes quantity <= 0
+PASS 17 actual-service assertions; external DB/price service replaced with fixtures

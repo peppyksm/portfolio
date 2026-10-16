@@ -1,0 +1,95 @@
+{
+  "pages": 15,
+  "uri_annotations": 15,
+  "unique_uris": 9,
+  "size_bytes": 814018,
+  "page_size": [
+    960,
+    540
+  ],
+  "sections": [
+    {
+      "page": 1,
+      "key": "home",
+      "title": "김승민 - Java Backend Developer"
+    },
+    {
+      "page": 2,
+      "key": "projects",
+      "title": "Projects"
+    },
+    {
+      "page": 3,
+      "key": "provit",
+      "title": "provit - AI 취업 준비 플랫폼"
+    },
+    {
+      "page": 4,
+      "key": "documents",
+      "title": "provit - Documents"
+    },
+    {
+      "page": 5,
+      "key": "review",
+      "title": "provit - AI Review"
+    },
+    {
+      "page": 6,
+      "key": "requests",
+      "title": "provit - Request & Storage"
+    },
+    {
+      "page": 7,
+      "key": "interview",
+      "title": "provit - AI Interview"
+    },
+    {
+      "page": 8,
+      "key": "reliability",
+      "title": "provit - 상태 관리와 저장 재시도"
+    },
+    {
+      "page": 9,
+      "key": "length",
+      "title": "provit - Oracle 한글 저장 길이"
+    },
+    {
+      "page": 10,
+      "key": "frade",
+      "title": "frade - 주식 트레이딩 플랫폼"
+    },
+    {
+      "page": 11,
+      "key": "history",
+      "title": "frade - 거래기록 조회"
+    },
+    {
+      "page": 12,
+      "key": "assets",
+      "title": "frade - 자산 계산과 시세 갱신"
+    },
+    {
+      "page": 13,
+      "key": "about",
+      "title": "About me"
+    },
+    {
+      "page": 14,
+      "key": "skills",
+      "title": "Skills"
+    },
+    {
+      "page": 15,
+      "key": "contact",
+      "title": "Contact"
+    }
+  ],
+  "verification": {
+    "all_15_page_renders_reviewed": true,
+    "out_of_page_characters": 0,
+    "valid_internal_links": 63,
+    "original_reference_unchanged": true,
+    "web_and_build_assets_identical": true,
+    "sha256": "7dd25e2ea946b46be4a21d434e92cd1843347349f08e636c48a439f4866e3a6f"
+  }
+}

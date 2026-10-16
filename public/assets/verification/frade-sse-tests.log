@@ -1,0 +1,18 @@
+✔ initial asset total, stock weights and chart use the same values including cash (13.3736ms)
+✔ valid chart-tick recalculates table, summaries, allocation and chart together (1.318ms)
+✔ broken JSON, wrong shapes, absent close and invalid prices preserve the previous display (1.0418ms)
+✔ one subscription per holding is preserved across repeated pageshow events (0.8401ms)
+✔ pagehide closes streams and pageshow reconnects after returning (0.7636ms)
+✔ cash-only and zero-asset screens avoid NaN or infinite allocation values (1.966ms)
+✔ zero buy cost yields a finite zero stock-return display (1.1038ms)
+✔ price-unavailable state displays waiting and values holdings at zero (0.9273ms)
+✔ events change valuation but cash and quantity are fixed until the next page query (1.594ms)
+✔ write reproducible synthetic observations and exact source hash (4.9546ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.5003
